@@ -10,7 +10,7 @@ import MovieInsights from "./MovieInsights";
 
 const MoviePage: React.FC = () => {
   const { imdbID } = useParams<{ imdbID: string }>();
-  const { movie, loading, ratingData, imdbGauge, metaGauge, stats, saveCount } =
+  const { movie, loading, ratingData, imdbGauge, metaGauge, stats } =
     useMovieData(imdbID);
 
   if (loading)

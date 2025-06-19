@@ -10,8 +10,6 @@ import ActorPage from "./screens/ActorsPage";
 import MoviePage from "./screens/MoviePage";
 import Navbar from "./components/Navbar";
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <Router>
       <Navbar></Navbar>
