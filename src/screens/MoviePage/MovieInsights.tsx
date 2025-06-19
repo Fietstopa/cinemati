@@ -19,7 +19,7 @@ import {
   Bar,
   LabelList,
 } from "recharts";
-import { Star, Award } from "lucide-react";
+import { Star } from "lucide-react";
 import CustomYAxisTick from "./customYAxisTick";
 
 interface Props {
@@ -97,7 +97,7 @@ const MovieInsights: React.FC<Props> = ({
                     dataKey="value"
                     stroke="none"
                   >
-                    {imdbGauge.map((entry, idx) => (
+                    {imdbGauge.map((_, idx) => (
                       <Cell
                         key={`imdb-${idx}`}
                         fill={idx === 0 ? "#fde047" : "#27272a"}
@@ -146,7 +146,7 @@ const MovieInsights: React.FC<Props> = ({
                     dataKey="value"
                     stroke="none"
                   >
-                    {metaGauge.map((entry, idx) => (
+                    {metaGauge.map((_, idx) => (
                       <Cell
                         key={`meta-${idx}`}
                         fill={idx === 0 ? "#fde047" : "#27272a"}
