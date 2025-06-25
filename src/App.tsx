@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../src/stores/store"; // ← cesta k tvému store.ts
@@ -13,8 +12,6 @@ import MoviePage from "./screens/MoviePage";
 import Navbar from "./components/Navbar";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <Provider store={store}>
       <Router>

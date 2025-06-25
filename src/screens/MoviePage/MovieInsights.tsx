@@ -97,7 +97,7 @@ const MovieInsights: React.FC<Props> = ({
                     dataKey="value"
                     stroke="none"
                   >
-                    {imdbGauge.map((entry, idx) => (
+                    {imdbGauge.map((_, idx) => (
                       <Cell
                         key={`imdb-${idx}`}
                         fill={idx === 0 ? "#fde047" : "#27272a"}
@@ -199,10 +199,10 @@ const MovieInsights: React.FC<Props> = ({
                       formatter={(v: number) => `${Math.round(v)}%`}
                     />
                     <Bar dataKey="value" radius={[0, 8, 8, 0]}>
-                      {ratingData.map((entry, index) => (
+                      {ratingData.map((_, index) => (
                         <Cell
                           key={`cell-${index}`}
-                          fill={sourceColors[entry.source] || "#a3a3a3"} // fallback barva
+                          fill={sourceColors[_.source] || "#a3a3a3"} // fallback barva
                         />
                       ))}
                       <LabelList
