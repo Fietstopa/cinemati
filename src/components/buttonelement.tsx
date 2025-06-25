@@ -14,7 +14,7 @@ const ButtonElement: React.FC<ButtonElementProps> = ({
   return (
     <button
       onClick={onClick}
-      className="flex items-center gap-1 hover:bg-zinc-900 hover:rounded-full px-5 py-2"
+      className="flex items-center md:bg-zinc-950 bg-zinc-900 gap-1 hover:bg-zinc-900 rounded-full px-5 py-2"
     >
       <span className="material-icons">{iconName}</span>
       <span className="text-sm font-medium">{buttonTitle}</span>

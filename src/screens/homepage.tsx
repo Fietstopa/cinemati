@@ -132,9 +132,9 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* === Layout === */}
-      <div className="relative min-h-[calc(100vh-60px)] flex flex-col lg:flex-row gap-10 px-6 md:px-10 lg:px-30 py-12 text-yellow-50 overflow-hidden">
+      <div className="relative min-h-[calc(100vh-60px)] flex flex-col lg:flex-row gap-10 px-4 md:px-10 lg:px-30 py-4 md:py-12 text-yellow-50 overflow-hidden">
         {/* === Hero === */}
-        <div className="relative w-full lg:w-2/3 aspect-[21/9] overflow-hidden rounded-2xl shadow-xl ring-1 ring-yellow-500/10">
+        <div className="relative w-full lg:w-2/3 aspect-[3/4] md:aspect-[21/9] overflow-hidden rounded-2xl shadow-xl ring-1 ring-yellow-500/10">
           <Link to={`/movie/${show.imdbID}`} className="block w-full h-full">
             <AnimatePresence initial={false} mode="wait">
               <motion.img

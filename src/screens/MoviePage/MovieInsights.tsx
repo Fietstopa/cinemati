@@ -19,7 +19,7 @@ import {
   Bar,
   LabelList,
 } from "recharts";
-import { Star } from "lucide-react";
+import { Star, Award } from "lucide-react";
 import CustomYAxisTick from "./customYAxisTick";
 
 interface Props {
@@ -47,7 +47,7 @@ const MovieInsights: React.FC<Props> = ({
   return (
     <>
       {/* Quick Stats */}
-      <div className=" mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-6 px-30 pt-12 pb-6">
+      <div className=" mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-30 pt-12 pb-6">
         {stats.map(({ icon, label, value }) => (
           <Card
             key={label}
@@ -67,9 +67,9 @@ const MovieInsights: React.FC<Props> = ({
       </div>
 
       {/* Gauges & Charts */}
-      <div className=" mx-auto grid lg:grid-cols-4 gap-8 px-30 py-10">
+      <div className=" mx-auto grid lg:grid-cols-4 gap-8 px-4 md:px-30 py-10">
         {/* IMDb Gauge */}
-        <Card className="relative overflow-hidden bg-black/80 border border-yellow-400/30 shadow-yellow-500/20 shadow-lg flex items-center justify-center p-6 rounded-2xl">
+        <Card className="relative  bg-black/80 border border-yellow-400/30 shadow-yellow-500/20 shadow-lg flex items-center justify-center p-6 rounded-2xl">
           {/* Overlay obrázku s jasem */}
           <div
             className="absolute inset-0 z-0"
@@ -97,7 +97,7 @@ const MovieInsights: React.FC<Props> = ({
                     dataKey="value"
                     stroke="none"
                   >
-                    {imdbGauge.map((_, idx) => (
+                    {imdbGauge.map((entry, idx) => (
                       <Cell
                         key={`imdb-${idx}`}
                         fill={idx === 0 ? "#fde047" : "#27272a"}
@@ -146,7 +146,7 @@ const MovieInsights: React.FC<Props> = ({
                     dataKey="value"
                     stroke="none"
                   >
-                    {metaGauge.map((_, idx) => (
+                    {metaGauge.map((entry, idx) => (
                       <Cell
                         key={`meta-${idx}`}
                         fill={idx === 0 ? "#fde047" : "#27272a"}

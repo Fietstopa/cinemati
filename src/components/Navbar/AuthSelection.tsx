@@ -14,7 +14,7 @@ type Props = {
 
 const AuthSection: React.FC<Props> = ({ user, username, onOpenLogin }) => {
   return (
-    <div className="flex items-center gap-4 text-sm font-medium">
+    <div className="flex w-full items-center  justify-between md:gap-4 text-sm font-medium">
       {user ? (
         <>
           <Link to="/watchlists">
@@ -27,7 +27,7 @@ const AuthSection: React.FC<Props> = ({ user, username, onOpenLogin }) => {
           />
           <ButtonElement
             iconName="logout"
-            buttonTitle="Log Out"
+            buttonTitle="LogOut"
             onClick={logout}
           />
         </>

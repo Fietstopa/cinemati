@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import type { MovieDetail } from "./types";
 import type { RatingPoint } from "./types";
-import { doc, onSnapshot } from "firebase/firestore";
-import { db } from "@/firebase/config";
+import { collection, doc, getDocs, onSnapshot } from "firebase/firestore";
+import { db, auth } from "@/firebase/config";
+import { onAuthStateChanged } from "firebase/auth";
 
 // helper pro prevedeni hodnoty z ruznych formatu na cislo (napr. 7.5/10 -> 75%)
 const parseRatings = (ratings: MovieDetail["Ratings"]): RatingPoint[] => {

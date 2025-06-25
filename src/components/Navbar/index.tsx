@@ -1,4 +1,5 @@
 // File: components/Navbar/index.tsx
+// File: components/Navbar/index.tsx
 
 import React, { useState, useEffect, useRef } from "react";
 import { onAuthStateChanged } from "firebase/auth";
@@ -41,32 +42,43 @@ const Navbar: React.FC = () => {
   }, [user]);
 
   return (
-    <div className="relative">
-      <nav className="flex items-center justify-between bg-black text-white px-30 py-2 shadow-md relative z-50">
-        <div className="flex items-center gap-2">
+    <div className="relative w-full">
+      <nav className="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-black text-white px-4 md:px-30 py-3 shadow-md relative z-50 gap-3 sm:gap-0">
+        {/* Logo & Menu */}
+        <div className="flex items-center justify-between w-full sm:w-auto">
           <Link to="/">
             <div className="bg-yellow-400 text-black font-bold px-2 py-1 rounded text-xl">
               Cinemati
             </div>
           </Link>
-          <ButtonElement
-            iconName="menu"
-            buttonTitle="Menu"
-            onClick={() => setMenuOpen((p) => !p)}
-          />
+          <div className="md:px-4">
+            <ButtonElement
+              iconName="menu"
+              buttonTitle=""
+              onClick={() => setMenuOpen((p) => !p)}
+            />
+          </div>
         </div>
 
-        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        {/* SearchBar (centered on larger screens, full width on mobile) */}
+        <div className="w-full sm:w-auto sm:flex-1  max-w-full">
+          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        </div>
 
-        <AuthSection
-          user={user}
-          username={username}
-          onOpenLogin={() => setShowLogin(true)}
-        />
+        {/* Auth buttons */}
+        <div className="w-full sm:w-auto flex md:justify-end ">
+          <AuthSection
+            user={user}
+            username={username}
+            onOpenLogin={() => setShowLogin(true)}
+          />
+        </div>
       </nav>
 
+      {/* Login popup */}
       {showLogin && <LoginRegisterPopup onClose={() => setShowLogin(false)} />}
 
+      {/* MegaMenu */}
       <MegaMenu menuOpen={menuOpen} menuRef={menuRef} />
     </div>
   );

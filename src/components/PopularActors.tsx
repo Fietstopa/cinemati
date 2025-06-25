@@ -30,7 +30,7 @@ const PopularActors: React.FC = () => {
   }, []);
 
   return (
-    <div className="px-30 py-10 bg-black text-white">
+    <div className="px-4  md:px-30 py-10 bg-black text-white">
       <h2 className="text-2xl font-bold mb-4 ">
         {" "}
         <span className="text-yellow-400">▍</span>

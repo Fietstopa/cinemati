@@ -3,6 +3,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { auth, db } from "../firebase/config";
 import { Link } from "react-router-dom";
 import { Plus } from "lucide-react";
+import { onAuthStateChanged } from "firebase/auth";
 
 interface Playlist {
   id: string;
@@ -15,8 +16,7 @@ const MyWatchlists: React.FC = () => {
   const [playlists, setPlaylists] = useState<Playlist[]>([]);
 
   useEffect(() => {
-    const fetchPlaylists = async () => {
-      const user = auth.currentUser;
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (!user) return;
 
       const ref = collection(db, "users", user.uid, "playlists");
@@ -27,13 +27,13 @@ const MyWatchlists: React.FC = () => {
       });
 
       setPlaylists(data);
-    };
+    });
 
-    fetchPlaylists();
+    return () => unsubscribe();
   }, []);
 
   return (
-    <div className="p-20 bg-black min-h-screen text-yellow-50">
+    <div className="p-4 md:p-30 bg-black min-h-screen text-yellow-50">
       <h1 className="text-5xl font-bold mb-6">My Watchlist</h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">

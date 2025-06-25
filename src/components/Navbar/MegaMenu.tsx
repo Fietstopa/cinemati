@@ -84,8 +84,8 @@ const MegaMenu: React.FC<Props> = ({ menuOpen, menuRef }) => {
   return (
     <div
       ref={menuRef}
-      className={`px-30 absolute top-full left-0 w-screen bg-neutral-900 text-white z-40 overflow-y-auto transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-        menuOpen ? "h-[100dvh] opacity-100 py-6 px-8" : "h-0 opacity-0 px-8"
+      className={`md:px-30 absolute top-full left-0 w-screen bg-neutral-900 text-white z-40 overflow-y-auto transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+        menuOpen ? "h-[100dvh] opacity-100 py-6 px-4" : "h-0 opacity-0 px-8"
       }`}
     >
       {genres.slice(0, 8).map((genre) => (

@@ -11,15 +11,15 @@ interface Props {
 
 const MovieHeader: React.FC<Props> = ({ movie }) => {
   return (
-    <div className="relative px-30 h-[60vh] w-full overflow-hidden">
+    <div className="relative px-4 md:px-30 min-h-[60vh] md:h-[60vh] w-full">
       {/* Pozadí obrázku + rozmazání */}
       <motion.img
         key={`${movie.Poster}-blur`}
         src={movie.Poster}
         alt="Backdrop"
-        className="absolute inset-0 w-full h-full object-cover scale-105 blur-lg opacity-30"
-        initial={{ scale: 1.1, opacity: 0 }}
-        animate={{ scale: 1.05, opacity: 0.3 }}
+        className="absolute inset-0 w-full h-full object-cover  blur-lg opacity-30"
+        initial={{ scale: 1.0, opacity: 0 }}
+        animate={{ scale: 1.0, opacity: 0.3 }}
         transition={{ duration: 0.8 }}
       />
 
@@ -35,7 +35,7 @@ const MovieHeader: React.FC<Props> = ({ movie }) => {
             key={movie.Poster}
             src={movie.Poster}
             alt={movie.Title}
-            className="w-40 sm:w-56 md:w-64 lg:w-72 rounded-xl shadow-lg border-4 border-yellow-400/40"
+            className="sm:w-56 md:w-64 lg:w-72 rounded-xl shadow-lg border-4 border-yellow-400/40"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
